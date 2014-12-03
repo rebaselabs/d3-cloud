@@ -42,6 +42,11 @@
       return cloud;
 
       function step() {
+        if (size[0] === 0 || size[1] === 0) {
+          cloud.stop();
+          event.end(tags, bounds);
+          return;
+        }
         var start = +new Date,
             d;
         while (+new Date - start < timeInterval && ++i < n && timer) {
